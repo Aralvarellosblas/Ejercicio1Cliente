@@ -7,6 +7,10 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
+ * Esta aplicación cliente-servidor está diseñada para enviar, recibir y leer un
+ * mensaje tres veces. Este es el codigo del cliente que se encarga de crear el
+ * socket, establecer la conexión y enviar el primer mensaje iniciando asi el
+ * ciclo.
  *
  * @author Arturo
  */
@@ -21,11 +25,13 @@ public class Ejercicio1Cliente{
             Socket clienteSocket=new Socket();
             System.out.println("Estableciendo la conexion");
 
-            InetSocketAddress addr=new InetSocketAddress("localhost", 5555);
+            InetSocketAddress addr=new InetSocketAddress("localhost", 6666);
             clienteSocket.connect(addr);
 
             InputStream is=clienteSocket.getInputStream();
             OutputStream os=clienteSocket.getOutputStream();
+
+            //Bucle encargado de enviar y leer los mensajes
             for(int i=0; i<3; i++){
 
                 System.out.println("Enviando mensaje");
